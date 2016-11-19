@@ -1,0 +1,17 @@
+<simple-notifications [options]="toastOptions"></simple-notifications>
+<md-card>
+  <md-toolbar> <i class="material-icons md-36 md-dark">timeline</i> {{title}}</md-toolbar>
+  <md-card-content><br>
+    <form [formGroup]="DNASequenceForm" novalidate (ngSubmit)="saveDNASequence()">
+      <md-input type="text" placeholder="DNA Sequence"  autocomplete="off" upperCaseInput
+                formControlName="DNASequence" maxlength="100" #DNASequence>
+        <md-hint align="end">{{DNASequence.characterCount}}</md-hint>
+          <md-hint *ngIf="!DNASequenceForm.controls['DNASequence'].valid && !DNASequenceForm.controls['DNASequence'].pristine &&
+                    DNASequenceForm.controls['DNASequence'].hasError('DNASequencePattern')"
+                   [ngStyle]="{'color': 'red'}" align="start">DNA Sequence has invalid pattern</md-hint>
+      </md-input><br><br>
+      <button md-raised-button color="primary" [disabled]="!DNASequenceForm.valid" type="submit">
+        <i class="material-icons md-dark">save</i> Save</button>
+    </form>
+  </md-card-content>
+</md-card>

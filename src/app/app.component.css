@@ -1,0 +1,13 @@
+md-card{
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top:0;
+    bottom: 30%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+md-input{
+    width: 100%;
+}
